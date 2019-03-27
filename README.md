@@ -30,15 +30,15 @@ Simplemente copie el archivo de acción en su carpeta actions.d :
 
 Aquí hay una configuración de ejemplo en el jail.local :
 
-```init
-[DEFECTO]
-destxmpp = quien-recibe@mi-servidor
-xmpprcfile = /ruta-completa-al-archivo-de-configuracion/.sendxmpprc
-    
+```ini
+[DEFAULT]
+destxmpp = your-account@jabber.de
+xmpprcfile = /root/.sendxmpprc
+
 [sshd]
-puerto = ssh
-logpath =% (sshd_log) s
-action = xmpp [ destxmpp = " % (destxmpp) s " , rcfile = " % (xmpprcfile) s " , nombre =% (__ name __) s, bantime = " % (bantime) s " ]
+port    = ssh
+logpath = %(sshd_log)s
+action  = xmpp[destxmpp="%(destxmpp)s", rcfile="%(xmpprcfile)s", name=%(__name__)s, bantime="%(bantime)s"]
 ```
 
 Es necesario definir dos valores:
