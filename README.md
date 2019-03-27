@@ -30,19 +30,21 @@ Simplemente copie el archivo de acción en su carpeta actions.d :
 
 Aquí hay una configuración de ejemplo en el jail.local :
 
-    [DEFECTO]
-    destxmpp = quien-recibe@mi-servidor
-    xmpprcfile = /ruta-completa-al-archivo-de-configuracion/.sendxmpprc
+```init
+[DEFECTO]
+destxmpp = quien-recibe@mi-servidor
+xmpprcfile = /ruta-completa-al-archivo-de-configuracion/.sendxmpprc
     
-    [sshd]
-    puerto = ssh
-    logpath =% (sshd_log) s
-    action = xmpp [ destxmpp = " % (destxmpp) s " , rcfile = " % (xmpprcfile) s " , nombre =% (__ name __) s, bantime = " % (bantime) s " ] 
+[sshd]
+puerto = ssh
+logpath =% (sshd_log) s
+action = xmpp [ destxmpp = " % (destxmpp) s " , rcfile = " % (xmpprcfile) s " , nombre =% (__ name __) s, bantime = " % (bantime) s " ]
+```
 
 Es necesario definir dos valores:
 
-`destxmpp` : esta es la cuenta xmpp de receving
-`xmpprcfile` : la ruta al archivo de recursos sendxmpp preparado 
+- `destxmpp` : esta es la cuenta xmpp de receving
+- `xmpprcfile` : la ruta al archivo de recursos sendxmpp preparado 
 
 
 # English
